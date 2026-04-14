@@ -1,34 +1,39 @@
 # 🚀 Franchise Management System - Backend (Reactive API)
 
-Esta es la solución técnica para el componente de Backend, desarrollada con un enfoque en alto rendimiento, escalabilidad y principios de **Clean Architecture**.
+Esta es una solución robusta para la gestión de franquicias, desarrollada bajo un paradigma **Reactivo** para garantizar alta disponibilidad y escalabilidad. El proyecto implementa **Clean Architecture** y está completamente contenerizado para despliegues agnósticos al entorno.
 
 ---
 
 ## 🛠️ Stack Tecnológico
 
-* **Lenguaje:** Java 17
-* **Framework:** Spring Boot 3.x (WebFlux / Project Reactor)
-* **Persistencia:** MongoDB (NoSQL) con driver reactivo
-* **Contenerización:** Docker & Docker Compose
-* **Infraestructura (IaC):** Terraform para aprovisionamiento de persistencia
+* **Runtime:** Java 17 (OpenJDK)
+* **Framework:** Spring Boot 3.4+ (Spring WebFlux)
+* **Paradigma:** Programación Reactiva con Project Reactor
+* **Persistencia:** MongoDB (Driver Reactivo)
+* **Containerización:** Docker con Multi-stage Builds
+* **Infraestructura:** Terraform para definición de recursos
 
 ---
 
-## 📸 Evidencia de Funcionamiento (Screenshots)
+## 📸 Evidencia Técnica (Screenshots)
 
-### 1. Despliegue de Contenedores
-Se utiliza Docker para garantizar la paridad entre entornos. La infraestructura incluye la API y la base de datos MongoDB:
+### 1. Construcción Autónoma (Multi-stage Build)
+El proyecto utiliza un `Dockerfile` optimizado que compila el código fuente dentro de un contenedor temporal, asegurando que el artefacto final sea ligero y seguro.
+![Build Process](./docs/screenshots/build_process.png)
+
+### 2. Orquestación de Servicios
+Uso de **Docker Compose** para levantar el ecosistema completo. Se garantiza el aislamiento de red entre la API y la persistencia NoSQL.
 ![Docker Status](./docs/screenshots/docker_status.png)
 
-### 2. Prueba de API (Persistence Check)
-Validación de creación de franquicia mediante peticiones REST, confirmando la persistencia reactiva en MongoDB:
+### 3. Validación de Persistencia Reactiva
+Prueba de integración exitosa: Creación de una franquicia mediante peticiones REST, validando el flujo No-Bloqueante de punta a punta.
 ![API Test](./docs/screenshots/api_test.png)
 
 ---
 
-## 📦 Despliegue con Docker
+## 📦 Guía de Despliegue Rápido
 
-Para levantar el ecosistema completo (API + DB), ejecute el siguiente comando en la raíz del proyecto:
+Para levantar la arquitectura completa (API + MongoDB), ejecute el siguiente comando en la raíz del proyecto:
 
 ```bash
 docker-compose up -d --build
