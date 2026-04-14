@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
@@ -15,6 +16,10 @@ import reactor.core.publisher.Mono;
 public class FranchiseService {
 
   private final FranchiseRepository repository;
+
+  public Flux<Franchise> getAllFranchises() {
+    return repository.findAll();
+  }
 
   public Mono<Franchise> createFranchise(Franchise franchise) {
     return repository.save(franchise);

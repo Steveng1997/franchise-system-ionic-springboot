@@ -5,6 +5,7 @@ import com.example.demo.domain.model.*;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
@@ -13,6 +14,11 @@ import reactor.core.publisher.Mono;
 public class FranchiseController {
 
   private final FranchiseService service;
+
+  @GetMapping
+  public Flux<Franchise> getAll() {
+    return service.getAllFranchises();
+  }
 
   @PostMapping
   public Mono<Franchise> create(@RequestBody Franchise franchise) {
