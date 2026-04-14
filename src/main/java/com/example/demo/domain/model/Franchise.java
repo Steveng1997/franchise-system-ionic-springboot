@@ -6,6 +6,10 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+/**
+ * Root Aggregate representing a Franchise.
+ * Persisted as a document in the MongoDB 'franchises' collection.
+ */
 @Data
 @Builder
 @NoArgsConstructor

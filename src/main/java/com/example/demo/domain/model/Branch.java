@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.*;
 
+/**
+ * Domain model representing a Franchise Branch.
+ */
 @Data
 @Builder
 @NoArgsConstructor
