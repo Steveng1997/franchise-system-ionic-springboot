@@ -1,39 +1,46 @@
 # 🚀 Franchise Management System - Backend (Reactive API)
 
-Esta es una solución robusta para la gestión de franquicias, desarrollada bajo un paradigma **Reactivo** para garantizar alta disponibilidad y escalabilidad. El proyecto implementa **Clean Architecture** y está completamente contenerizado para despliegues agnósticos al entorno.
+This project is a high-performance RESTful API designed to manage franchises, branches, and product inventory. It was built using a **Reactive Programming** paradigm to ensure high availability, non-blocking I/O, and superior scalability.
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tech Stack
 
 * **Runtime:** Java 17 (OpenJDK)
 * **Framework:** Spring Boot 3.4+ (Spring WebFlux)
-* **Paradigma:** Programación Reactiva con Project Reactor
-* **Persistencia:** MongoDB (Driver Reactivo)
-* **Containerización:** Docker con Multi-stage Builds
-* **Infraestructura:** Terraform para definición de recursos
+* **Paradigm:** Reactive Programming with Project Reactor
+* **Persistence:** MongoDB (Reactive Driver)
+* **Infrastructure:** Terraform (IaC) & Docker (Multi-stage Builds)
+* **Tooling:** Lombok, Maven
 
 ---
 
-## 📸 Evidencia Técnica (Screenshots)
+## 🏗️ Architecture Design
 
-### 1. Construcción Autónoma (Multi-stage Build)
-El proyecto utiliza un `Dockerfile` optimizado que compila el código fuente dentro de un contenedor temporal, asegurando que el artefacto final sea ligero y seguro.
-![Build Process](./docs/screenshots/build_process.png)
+The project strictly follows **Clean Architecture** principles to ensure a decoupled, testable, and maintainable codebase:
 
-### 2. Orquestación de Servicios
-Uso de **Docker Compose** para levantar el ecosistema completo. Se garantiza el aislamiento de red entre la API y la persistencia NoSQL.
-![Docker Status](./docs/screenshots/docker_status.png)
-
-### 3. Validación de Persistencia Reactiva
-Prueba de integración exitosa: Creación de una franquicia mediante peticiones REST, validando el flujo No-Bloqueante de punta a punta.
-![API Test](./docs/screenshots/api_test.png)
+* **Domain Layer:** Contains core business entities (`Franchise`, `Branch`, `Product`) and repository interfaces.
+* **Application Layer:** Implements business logic through **Reactive Services** using non-blocking operators.
+* **Infrastructure Layer:** Manages REST Controllers, MongoDB persistence, and Infrastructure as Code definitions.
 
 ---
 
-## 📦 Guía de Despliegue Rápido
+## 📸 Technical Evidence
 
-Para levantar la arquitectura completa (API + MongoDB), ejecute el siguiente comando en la raíz del proyecto:
+Visual evidence of the implementation, including build processes and API testing, is available in the `docs/screenshots/` directory:
 
+1.  **Autonomous Build (Multi-stage):** Optimized `Dockerfile` ensuring a lightweight and secure runtime.
+    * *See: `docs/screenshots/build_process.png`*
+2.  **Service Orchestration:** Ecosystem deployment using **Docker Compose** with full network isolation.
+    * *See: `docs/screenshots/docker_status.png`*
+3.  **API Integration Testing:** End-to-end validation of reactive flows through REST requests.
+    * *See: `docs/screenshots/api_test.png.png`*
+
+---
+
+## 🧪 Testing
+
+Code quality is verified through **Unit Tests** focusing on core business logic.
+To run the test suite:
 ```bash
-docker-compose up -d --build
+./mvnw test
